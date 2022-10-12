@@ -478,7 +478,11 @@ bool IsRoiDifferent(mfxFrameSurface1 *input, mfxFrameSurface1 *output)
     if ((input->Info.Width == output->Info.Width && input->Info.Height == output->Info.Height) &&
         (input->Info.CropW == output->Info.CropW && input->Info.CropH == output->Info.CropH) &&
         (input->Info.CropX == output->Info.CropX && input->Info.CropY == output->Info.CropY) &&
-        (input->Info.PicStruct == output->Info.PicStruct)
+        (input->Info.PicStruct == output->Info.PicStruct) &&
+        (input->Info.CropX == 0) &&
+        (input->Info.CropY == 0) &&
+        (input->Info.CropH == input->Info.Height) &&
+        (input->Info.CropW == input->Info.Width)
         )
     {
         return false;
